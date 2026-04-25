@@ -1,0 +1,11 @@
+{
+  "sections": {
+    "mistora_landing": {
+      "type": "mistora-landing",
+      "settings": {}
+    }
+  },
+  "order": [
+    "mistora_landing"
+  ]
+}

@@ -1,0 +1,407 @@
+<div class="mistora-landing">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        .mistora-landing {
+            --primary: #7BAE7F;
+            --primary-dark: #649168;
+            --background: #F5F0E8;
+            --text-dark: #2D2D2D;
+            --text-light: #666666;
+            --white: #FFFFFF;
+            
+            font-family: 'Inter', sans-serif;
+            color: var(--text-dark);
+            background-color: var(--white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .mistora-landing h1, .mistora-landing h2, .mistora-landing h3, .mistora-landing h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+        }
+
+        .mistora-landing .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        
+        .mistora-landing .btn {
+            display: inline-block;
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 16px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            text-transform: uppercase;
+        }
+
+        .mistora-landing .btn:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(123, 174, 127, 0.3);
+        }
+
+        .mistora-landing .hero {
+            position: relative;
+            height: 90vh;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            background-color: var(--background);
+        }
+
+        .mistora-landing .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 600px;
+            padding-right: 40px;
+            animation: mistoraFadeUp 1s ease forwards;
+        }
+
+        .mistora-landing .hero h1 {
+            font-size: 4rem;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            color: var(--text-dark);
+        }
+
+        .mistora-landing .hero p {
+            font-size: 1.25rem;
+            color: var(--text-light);
+            margin-bottom: 40px;
+            max-width: 480px;
+        }
+
+        .mistora-landing .hero-image {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            animation: mistoraImageReveal 1.2s ease forwards;
+        }
+
+        .mistora-landing .trust-badges {
+            display: flex;
+            gap: 24px;
+            margin-top: 40px;
+            opacity: 0;
+            animation: mistoraFadeUp 1s ease 0.5s forwards;
+        }
+
+        .mistora-landing .badge {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .mistora-landing .badge svg {
+            width: 20px;
+            height: 20px;
+            fill: var(--primary);
+        }
+
+        .mistora-landing .features {
+            padding: 100px 0;
+            background-color: var(--white);
+        }
+
+        .mistora-landing .section-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .mistora-landing .section-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+        }
+
+        .mistora-landing .section-header p {
+            color: var(--text-light);
+            font-size: 1.1rem;
+        }
+
+        .mistora-landing .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+        }
+
+        .mistora-landing .feature-card {
+            text-align: center;
+            padding: 40px 30px;
+            background-color: var(--background);
+            border-radius: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .mistora-landing .feature-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .mistora-landing .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .mistora-landing .feature-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .mistora-landing .feature-card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        .mistora-landing .split-section {
+            display: flex;
+            align-items: center;
+            padding: 100px 0;
+            background-color: var(--background);
+        }
+
+        .mistora-landing .split-section.reverse {
+            flex-direction: row-reverse;
+            background-color: var(--white);
+        }
+
+        .mistora-landing .split-image {
+            flex: 1;
+            padding: 0 50px;
+        }
+
+        .mistora-landing .split-image img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+        }
+
+        .mistora-landing .split-content {
+            flex: 1;
+            padding: 0 50px;
+        }
+
+        .mistora-landing .split-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 24px;
+        }
+
+        .mistora-landing .split-content p {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            margin-bottom: 30px;
+        }
+
+        .mistora-landing .sticky-buy {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: var(--white);
+            padding: 16px;
+            box-shadow: 0 -4px 12px rgba(0,0,0,0.05);
+            z-index: 100;
+        }
+
+        .mistora-landing .sticky-buy .btn {
+            width: 100%;
+            text-align: center;
+        }
+
+        @keyframes mistoraFadeUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes mistoraImageReveal {
+            from { opacity: 0; clip-path: inset(0 0 0 100%); }
+            to { opacity: 1; clip-path: inset(0 0 0 0); }
+        }
+
+        @media (max-width: 992px) {
+            .mistora-landing .hero h1 { font-size: 3rem; }
+            .mistora-landing .hero-image { width: 40%; }
+            .mistora-landing .features-grid { grid-template-columns: repeat(2, 1fr); }
+            .mistora-landing .split-section, .mistora-landing .split-section.reverse { flex-direction: column; padding: 60px 0; }
+            .mistora-landing .split-image, .mistora-landing .split-content { padding: 0 24px; width: 100%; margin-bottom: 40px; }
+        }
+
+        @media (max-width: 768px) {
+            .mistora-landing .hero { flex-direction: column; height: auto; text-align: center; padding-top: 80px; }
+            .mistora-landing .hero-content { padding-right: 0; margin-bottom: 40px; }
+            .mistora-landing .hero h1 { font-size: 2.5rem; }
+            .mistora-landing .hero-image { position: relative; width: 100%; height: 400px; }
+            .mistora-landing .trust-badges { justify-content: center; flex-wrap: wrap; }
+            .mistora-landing .features-grid { grid-template-columns: 1fr; }
+            .mistora-landing .sticky-buy { display: block; }
+        }
+    </style>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="container" style="display: flex; width: 100%; height: 100%;">
+            <div class="hero-content">
+                <h1>Breathe.<br>Relax. Glow.</h1>
+                <p>Transform your space into a personal wellness retreat. The Mistora 2-in-1 Humidifier & Aroma Diffuser purifies the air while creating a calming ambient glow.</p>
+                <a href="/products/mistora" class="btn">Shop Now - ₹1,499</a>
+                
+                <div class="trust-badges">
+                    <div class="badge">
+                        <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+                        Free Delivery
+                    </div>
+                    <div class="badge">
+                        <svg viewBox="0 0 24 24"><path d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" stroke-width="2" fill="none"/><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+                        1 Year Warranty
+                    </div>
+                </div>
+            </div>
+        </div>
+        <img src="{{ 'hero-image.png' | asset_url }}" alt="Mistora Humidifier" class="hero-image">
+    </section>
+
+    <!-- FEATURES GRID -->
+    <section class="features">
+        <div class="container">
+            <div class="section-header">
+                <h2>Designed for Daily Rituals</h2>
+                <p>Everything you need to elevate your environment.</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card mistora-observe">
+                    <div class="feature-icon">🌫️</div>
+                    <h3>2-in-1 Design</h3>
+                    <p>Combines cool mist humidifying with essential oil aromatherapy to purify and naturally scent your environment.</p>
+                </div>
+                <div class="feature-card mistora-observe">
+                    <div class="feature-icon">💧</div>
+                    <h3>300ML Large Tank</h3>
+                    <p>Provides long-lasting mist output for up to 6–8 hours. Perfect for continuous use in any room.</p>
+                </div>
+                <div class="feature-card mistora-observe">
+                    <div class="feature-icon">🔌</div>
+                    <h3>USB Powered & Portable</h3>
+                    <p>Compact, lightweight design ideal for travel, car use, or bedside table. Plugs into any USB source.</p>
+                </div>
+                <div class="feature-card mistora-observe">
+                    <div class="feature-icon">🌈</div>
+                    <h3>7-Color LED Night Light</h3>
+                    <p>Features soft, color-changing ambient lighting to create a relaxing mood or use as a night lamp.</p>
+                </div>
+                <div class="feature-card mistora-observe">
+                    <div class="feature-icon">🔇</div>
+                    <h3>Ultra-Quiet Operation</h3>
+                    <p>Enjoy peaceful sleep or focused work with a silent misting system operating under 30dB.</p>
+                </div>
+                <div class="feature-card mistora-observe">
+                    <div class="feature-icon">🌿</div>
+                    <h3>Aromatherapy Ready</h3>
+                    <p>Just add a few drops of your favorite essential oil for a fresh, soothing, and fragrant atmosphere.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SPLIT LIFESTYLE 1 -->
+    <section class="split-section">
+        <div class="split-image mistora-observe">
+            <img src="{{ 'bedroom-lifestyle.png' | asset_url }}" alt="Mistora in Bedroom">
+        </div>
+        <div class="split-content mistora-observe">
+            <h2>Perfect for Deep, Restful Sleep</h2>
+            <p>Dry air can cause congestion and dry skin. The Mistora humidifier adds essential moisture back into the air, while operating at a whisper-quiet level (under 30dB).</p>
+            <p>Coupled with the gentle 7-color LED night light, it creates the perfect relaxing environment to help you drift off naturally.</p>
+        </div>
+    </section>
+
+    <!-- SPLIT LIFESTYLE 2 (Reverse) -->
+    <section class="split-section reverse">
+        <div class="split-image mistora-observe">
+            <img src="{{ 'car-lifestyle.png' | asset_url }}" alt="Mistora in Car">
+        </div>
+        <div class="split-content mistora-observe">
+            <h2>Take Your Calm Anywhere</h2>
+            <p>Designed to fit perfectly in your car's cup holder or on your office desk. Powered via a simple USB connection, you can plug it into your laptop, power bank, or car adapter.</p>
+            <p>Keep your immediate space fresh and properly humidified, no matter where your day takes you.</p>
+        </div>
+    </section>
+
+    <!-- PRODUCT SHOWCASE / BUY SECTION -->
+    <section class="split-section" id="buy-now" style="background-color: var(--white); border-top: 1px solid #eee;">
+        <div class="split-image mistora-observe">
+            <img src="{{ 'unboxing.png' | asset_url }}" alt="Mistora Unboxing">
+        </div>
+        <div class="split-content mistora-observe">
+            <h2 style="font-size: 2rem;">Mistora 2-in-1 Humidifier & Aroma Diffuser</h2>
+            <div style="font-size: 1.5rem; color: var(--primary); font-weight: 600; margin-bottom: 20px;">
+                ₹1,499 <span style="font-size: 1rem; color: var(--text-light); text-decoration: line-through; margin-left: 10px;">₹2,999</span>
+            </div>
+            <ul style="list-style: none; margin-bottom: 30px;">
+                <li style="margin-bottom: 10px;">✅ Free Shipping Across India</li>
+                <li style="margin-bottom: 10px;">✅ Cash on Delivery Available</li>
+                <li style="margin-bottom: 10px;">✅ 1-Year Brand Warranty</li>
+            </ul>
+            <p style="margin-bottom: 20px; font-size: 0.9rem; color: var(--text-light);">What's in the box: 1x Mistora Humidifier, 1x USB Type-C Cable, 2x Cotton Filter Sticks, 1x Instruction Manual.</p>
+            
+            {% form 'product', product %}
+                <input type="hidden" name="id" value="{{ all_products['mistora'].variants.first.id }}">
+                <button type="submit" class="btn" style="width: 100%; padding: 20px; font-size: 1.1rem;">Add to Cart</button>
+            {% endform %}
+        </div>
+    </section>
+
+    <!-- Mobile Sticky Buy Button -->
+    <div class="sticky-buy">
+        <a href="/products/mistora" class="btn">Shop Now - ₹1,499</a>
+    </div>
+
+    <!-- Simple Scroll Animation Script -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.mistora-observe').forEach((el) => {
+                el.style.opacity = 0;
+                el.style.transform = 'translateY(30px)';
+                el.style.transition = 'all 0.6s ease';
+                observer.observe(el);
+            });
+        });
+    </script>
+</div>
+
+{% schema %}
+{
+  "name": "Mistora Landing",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Mistora Landing",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}
